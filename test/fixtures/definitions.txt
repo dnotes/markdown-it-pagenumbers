@@ -1,6 +1,7 @@
-These are test definitions. This is a title:
+Page numbers in the middle of text:
 .
-The [markdown](//daringfireball.net/markdown) above should match the html below.
+This is some text [pg 123] with a page number in the middle.
 .
-<p>The <a href="//daringfireball.net/markdown">markdown</a> above should match the html below.</p>
+<p>This is some text <a data-pg="123">123</a> with a page number in the middle.
 .
+
