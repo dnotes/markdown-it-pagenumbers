@@ -1,0 +1,33 @@
+{
+  "name": "markdown-it-pagenumbers",
+  "version": "1.0.0",
+  "description": "Base project for development of markdown-it plugins.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha -R spec"
+  },
+  "keywords": [
+    "markdown-it",
+    "markdown"
+  ],
+  "author": "David Hunt <git@dnotes.net> (https://dnotes.net/)",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "eslint": "^5.16.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-testgen": "^0.1.5",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "terser": "^3.17.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "github.com/dnotes/markdown-it-pagenumbers"
+  }
+}
