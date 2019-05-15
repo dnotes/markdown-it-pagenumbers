@@ -2,6 +2,31 @@ Page numbers in the middle of text:
 .
 This is some text [pg 123] with a page number in the middle.
 .
-<p>This is some text <a data-pg="123">123</a> with a page number in the middle.
+<p>This is some text <a data-pg="123">123</a> with a page number in the middle.</p>
 .
 
+
+Page numbers in the middle of a multiline paragraph:
+.
+This is some text
+[pg 123]
+with a page number in the middle.
+.
+<p>This is some text
+<a data-pg="123">123</a>
+with a page number in the middle.</p>
+.
+
+
+Page numbers between paragraphs:
+.
+This is one paragraph.
+
+[pg 123]
+
+This is another.
+.
+<p>This is one paragraph.</p>
+<a data-pg="123">123</a>
+<p>This is another.</p>
+.
