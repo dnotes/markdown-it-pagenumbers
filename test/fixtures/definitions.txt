@@ -1,4 +1,4 @@
-Page numbers in the middle of text:
+Page numbers appear in the middle of text
 .
 This is some text [pg 123] with a page number in the middle.
 .
@@ -6,7 +6,7 @@ This is some text [pg 123] with a page number in the middle.
 .
 
 
-Page numbers in the middle of a multiline paragraph:
+Page numbers appear in the middle of a multiline paragraph
 .
 This is some text
 [pg 123]
@@ -18,7 +18,7 @@ with a page number in the middle.</p>
 .
 
 
-Page numbers between paragraphs:
+Page numbers appear between paragraphs
 .
 This is one paragraph.
 
@@ -29,4 +29,78 @@ This is another.
 <p>This is one paragraph.</p>
 <a data-pg="123">123</a>
 <p>This is another.</p>
+.
+
+
+Page numbers can include roman numerals
+.
+This is some text [pg mdclxviii] with a page number in the middle.
+.
+<p>This is some text <a data-pg="mdclxviii">mdclxviii</a> with a page number in the middle.</p>
+.
+
+
+Page numbers can include uppercase roman numerals
+.
+This is some text [pg MDCLXVIII] with a page number in the middle.
+.
+<p>This is some text <a data-pg="MDCLXVIII">MDCLXVIII</a> with a page number in the middle.</p>
+.
+
+
+Page numbers can include a period
+.
+This is some text [pg 1.2] with a page number in the middle.
+.
+<p>This is some text <a data-pg="1.2">1.2</a> with a page number in the middle.</p>
+.
+
+
+Page numbers can include a colon
+.
+This is some text [pg 1:2] with a page number in the middle.
+.
+<p>This is some text <a data-pg="1:2">1:2</a> with a page number in the middle.</p>
+.
+
+
+Page numbers can include a dash
+.
+This is some text [pg 1-2] with a page number in the middle.
+.
+<p>This is some text <a data-pg="1-2">1-2</a> with a page number in the middle.</p>
+.
+
+
+Page numbers do not require a space
+.
+This is some text [pg12] with a page number in the middle.
+.
+<p>This is some text <a data-pg="12">12</a> with a page number in the middle.</p>
+.
+
+
+Inline links remain unaffected by page numbers
+.
+In the United States, some movies are rated [pg 13](https://filmratings.com).
+.
+<p>In the United States, some movies are rated <a href="https://filmratings.com">pg 13</a>.</p>
+.
+
+
+Inline links with no url remain unaffected by page numbers
+.
+In the United States, some movies are rated [pg 13]().
+.
+<p>In the United States, some movies are rated <a href="">pg 13</a>.</p>
+.
+
+
+Defined links remain unaffected by page numbers
+.
+In the United States, some movies are rated [pg 13].
+
+[pg 13]: https://filmratings.com
+.
+<p>In the United States, some movies are rated <a href="https://filmratings.com">pg 13</a>.</p>
 .
