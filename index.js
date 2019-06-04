@@ -2,6 +2,7 @@
 
 function addPagenumbers(state) {
   let newChildren
+  let nestingLevel
   function _processChild(match) {
     let textNode, havePG = false
     if (match.indexOf('[pg') === -1) {
@@ -20,9 +21,13 @@ function addPagenumbers(state) {
     let havePG = false
     if (token.type === 'inline') {
       newChildren = []
+      nestingLevel = 0
       for (let j = 0; j < token.children.length; j++) {
         let child = token.children[j]
-        if (child.type === 'text' && child.content.indexOf('[pg') !== -1) {
+        if (child.type === 'link_open' || child.type === 'link_close') {
+          nestingLevel += child.nesting
+          newChildren.push(child)
+        } else if (nestingLevel === 0 && child.type === 'text' && child.content.indexOf('[pg') !== -1) {
           havePG = child
             .content
             .split(/(\[pg\s*[^\]]+\])/)
