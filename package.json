@@ -7,7 +7,7 @@
     "build": "make build",
     "coverage": "yarn test && nyc report -r text-lcov | coveralls",
     "lint": "eslint .",
-    "pub": "yarn lint && yarn coverage && make build && make publish",
+    "pub": "yarn lint && yarn test && make build && make publish",
     "test": "nyc --check-coverage --lines 100 mocha"
   },
   "keywords": [
