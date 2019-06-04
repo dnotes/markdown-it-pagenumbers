@@ -32,6 +32,42 @@ This is another.
 .
 
 
+Page numbers appear between single-line block elements
+.
+# Heading
+[pg 1]
+
+* * *
+
+[pg 2]
+
+---
+
+[pg 3]
+
+This is a paragraph.
+
+Another paragraph.
+.
+<h1>Heading</h1>
+<a data-pg="1">1</a>
+<hr>
+<a data-pg="2">2</a>
+<hr>
+<a data-pg="3">3</a>
+<p>This is a paragraph.</p>
+<p>Another paragraph.</p>
+.
+
+
+Page numbers can appear within ATX header text
+.
+# [pg 1] Header text [pg 2]
+.
+<h1><a data-pg="1">1</a> Header text <a data-pg="2">2</a></h1>
+.
+
+
 Page numbers can include roman numerals
 .
 This is some text [pg mdclxviii] with a page number in the middle.
@@ -103,4 +139,20 @@ In the United States, some movies are rated [pg 13].
 [pg 13]: https://filmratings.com
 .
 <p>In the United States, some movies are rated <a href="https://filmratings.com">pg 13</a>.</p>
+.
+
+
+Page numbers are not permitted within link text or titles
+.
+[link [pg 1] text **with [pg 2] page numbers** inside](https://example.com "title [pg 3] page number")
+.
+<p><a href="https://example.com" title="title [pg 3] page number">link [pg 1] text <strong>with [pg 2] page numbers</strong> inside</a></p>
+.
+
+
+Page numbers are not permitted within image alt tags or titles
+.
+![image alt text with [pg 1] a page number inside](image.jpg "title [pg 2] page number")
+.
+<p><img src="image.jpg" alt="image alt text with [pg 1] a page number inside" title="title [pg 2] page number"></p>
 .
