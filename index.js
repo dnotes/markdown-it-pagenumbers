@@ -1,30 +1,34 @@
 'use strict'
 
 function addPagenumbers(state) {
-  function _processChild(match, opts) {
-    let textNode
+  let newChildren
+  function _processChild(match) {
+    let textNode, havePG = false
     if (match.indexOf('[pg') === -1) {
       textNode = new state.Token('text', '', 0)
       textNode.content = match
     } else {
       textNode = new state.Token('pagenumber', '', 0)
       textNode.content = match.replace(/^\[pg\s*([^\]]+)]/, '$1')
-      opts.havePG = true
+      havePG = true
     }
-    opts.newChildren.push(textNode)
+    newChildren.push(textNode)
+    return havePG
   }
   for (let i = 0; i < state.tokens.length; i++) {
     let token = state.tokens[i]
     let havePG = false
     if (token.type === 'inline') {
-      let newChildren = []
+      newChildren = []
       for (let j = 0; j < token.children.length; j++) {
         let child = token.children[j]
         if (child.type === 'text' && child.content.indexOf('[pg') !== -1) {
-          child.content.split(/(\[pg\s*[^\]]+\])/).filter(e => e.length).forEach(match => _processChild(match, {
-            newChildren,
-            havePG
-          }))
+          havePG = child
+            .content
+            .split(/(\[pg\s*[^\]]+\])/)
+            .filter(e => e.length)
+            .map(_processChild)
+            .filter(e => e).length > 0 || havePG
         } else {
           newChildren.push(child)
         }
