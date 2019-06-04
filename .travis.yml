@@ -1,6 +1,14 @@
 language: node_js
 node_js:
- - '6'
- - node
-script: make test-ci
+- lts/*
+- node
+script: yarn lint && yarn coverage
 sudo: false
+deploy:
+  provider: npm
+  email: git@dnotes.net
+  api_key:
+    secure: zGn9BDtNCBC2heV74gq/6Q8JUPv3MyEaVrseEdy+FXyVzh38xU39nauByuuir9CNua5zhUjcjCzsQo0ai3CgNl+Yxi9kO0n6bkBBtQGPb5qc/O+h9dHccXH6iYX7A3wjAEnELUovGyENs+qac/Aaq2zHnxynu3o4lrx8qmebYDpkeld/BlH1uV/YHmUPOMkii9fUAmMVwzyKaTDBmcVHxi4phFRtGxJVgSSyCURsAstySK0+SwABx8zT20WcsHcnji8YvYSjgl7uBPAbR5faN2hi6Duw/W5Y0NqklK4qswJQJHXcJbtJSJf28qgd6zDV8VJe+gZJ8+TryXKerdPoAZdPfULsjwHBOOsIYzVMShOu01ZTGXDUJH7mlHoQc/pYTN5HewBTTggB4i/xDoT26TLmHMWdDAf44M355fsU/GJeuYqdzd4qKNSbQXHJesQuOng3qRs0uNH6t4QqVwe7BTzXrel9DJQpenDwAu7eqLt9qbJyTBKcu8lMNOXwO7D4m0OAedrspFGMv+bgHyrMH+lIa0mnFKdoXfV/sJ9y5OQ3kxo/mImkehH8OGIucmE7VvUHMUyyJyFqc0/Lmxv+VJKgHYs/rbKAyZml8IhU7ni7TFzwIgbTInb1MuzSqH3Hhu8eNVSfaWePOkDgdmnZS8660yaQzwgIrq09F89ONmc=
+  on:
+    tags: true
+    repo: dnotes/markdown-it-pagenumbers

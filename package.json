@@ -4,8 +4,11 @@
   "description": "Base project for development of markdown-it plugins.",
   "main": "index.js",
   "scripts": {
+    "build": "make build",
+    "coverage": "yarn test && nyc report -r text-lcov | coveralls",
     "lint": "eslint .",
-    "test": "mocha --colors"
+    "pub": "yarn lint && yarn coverage && make build && make publish",
+    "test": "nyc --check-coverage --lines 100 mocha"
   },
   "keywords": [
     "markdown-it",
@@ -15,6 +18,7 @@
   "license": "MIT",
   "devDependencies": {
     "browserify": "^16.2.3",
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "markdown-it": "^8.4.2",
     "markdown-it-testgen": "^0.1.5",
